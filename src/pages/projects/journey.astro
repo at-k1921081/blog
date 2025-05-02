@@ -1,0 +1,89 @@
+---
+import "../../styles/global.css";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Journeyimg from "../../images/Journey.png";
+import { Image } from "astro:assets";
+---
+
+<BaseLayout>
+	<div class="maincontent">
+		<Image
+			src={Journeyimg}
+			alt="journey main menu background image"
+			width={800}
+			height={300}
+			class="gameimg"
+		/>
+		<div class="textcontent">
+			<h1>Journey</h1>
+			<h3>Overview</h3>
+			<p>
+				Journey is a 2D platformer game where you into a journey inside a
+				volcano to rescue your friend, the fairy. Get past the many obstacles in
+				your way, get down into the depths of the volcano to save her and then
+				get her back to safety.
+			</p>
+			<br />
+			<h3>Gameplay</h3>
+			<p>
+				The player is controlled by the arrow keys and space bar. The left and
+				right arrow keys allow you to move left and right, the up arrow or space
+				bar allows you to jump. P pauses the game, M mutes the game. If you die
+				and go to the game lost screen, space bar allows you to replay the
+				level. The mouse can be used to navigate the menus.
+				<br />
+				<br />
+				The game features physics elements such as collision detection and gravity,
+				as well as moving enemies and obstacles that the player has to avoid.
+			</p>
+			<br />
+			<h3>Technology</h3>
+			<p>
+				Journey is created using the SDL, SDL_image, SDL_mixer and SDL_ttf
+				libraries. It uses C++ as a programming language.
+			</p>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	h1 {
+		font-size: 3rem;
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	img {
+		align-self: center;
+	}
+
+	.maincontent {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.textcontent {
+		width: 50%;
+		align-self: center;
+		margin-top: 2rem;
+	}
+
+	@media screen and (max-width: 700px) {
+		.gameimg {
+			width: 200px;
+			height: 100px;
+		}
+
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+
+		.textcontent {
+			width: 95%;
+		}
+	}
+</style>

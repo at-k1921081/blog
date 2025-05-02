@@ -1,22 +1,34 @@
 ---
+import { getCollection } from "astro:content";
+import BlogPost from "../components/BlogPost.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 
+const allPosts = await getCollection("blog");
+const posts = allPosts.sort((post1, post2) => {
+	return (
+		(post1.data.pubDate as Date).getTime() -
+		(post2.data.pubDate as Date).getTime()
+	);
+});
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Alex Tsvetanov</h1>
-		<nav>
-			<a href="/blog/">Home</a>
-			<a href="/blog/about">About</a>
-			<a href="/blog/blog">Blog</a>
-		</nav>
-		<h2>My first post</h2>
-	</body>
-</html>
+<BaseLayout pageTitle={"Blog"}>
+	<ul>
+		{
+			allPosts.map((post) => (
+				<BlogPost
+					url={`/blog/posts/${post.id}/`}
+					title={post.data.title}
+					id={post.id}
+				/>
+			))
+		}
+	</ul>
+</BaseLayout>
+
+<style>
+	ul {
+		padding: 0;
+	}
+</style>

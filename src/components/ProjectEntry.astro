@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+
+const { image, title, url } = Astro.props;
+---
+
+<div class="projectentry">
+	{
+		url === "" ?
+		<Image src={image} alt={title} width={200} height={200} />
+		<h2>{title}</h2>
+		<p>In Progress</p> :
+		<a href={url}>
+			<Image src={image} alt={title} width={200} height={200} />
+			<h2>{title}</h2>
+		</a>
+	}
+</div>
+
+<style>
+	a {
+		text-decoration: none;
+	}
+
+	img {
+		align-self: center;
+	}
+
+	.projectentry {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 2rem;
+	}
+
+	h2 {
+		text-align: center;
+	}
+
+	p {
+		color: red;
+		text-align: center;
+	}
+</style>

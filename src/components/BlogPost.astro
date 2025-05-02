@@ -1,0 +1,55 @@
+---
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+
+const { url, title, id } = Astro.props;
+
+const entry = await getEntry("blog", id);
+if (!entry) {
+	throw new Error("Could not find blog post");
+}
+const { Content } = await render(entry);
+---
+
+<li>
+	<a href={url}>
+		<h1>{title}</h1>
+		<div class="content">
+			<Content />
+		</div>
+		<hr />
+	</a>
+</li>
+
+<style>
+	li {
+		list-style: none;
+		margin: 2rem;
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	.content {
+		margin-left: 2rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	hr {
+		border-color: #eee;
+	}
+
+	@media screen and (max-width: 700px) {
+		li {
+			margin: 1rem;
+		}
+
+		.content {
+			margin-left: 0;
+			margin-bottom: 2rem;
+		}
+	}
+</style>

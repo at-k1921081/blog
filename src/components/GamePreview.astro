@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+
+const { src, alt, title } = Astro.props;
+---
+
+<div class="preview">
+	<Image src={src} alt={alt} class="previewimg" />
+	<h3>{title}</h3>
+</div>
+
+<style>
+	.preview {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.previewimg {
+		width: 150px;
+		height: 150px;
+	}
+</style>

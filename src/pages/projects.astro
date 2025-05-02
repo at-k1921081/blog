@@ -1,0 +1,69 @@
+---
+import "../styles/global.css";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectEntry from "../components/ProjectEntry.astro";
+
+import Journey from "../images/Journey.png";
+import LostInTheWoods from "../images/LostInTheWoods.png";
+import NightTimeSurvival from "../images/NightTimeSurvival.png";
+
+type Project = {
+	image: ImageMetadata;
+	title: string;
+	url: string;
+};
+
+const projects: Project[] = [
+	{
+		image: NightTimeSurvival,
+		title: "Night Time Survival",
+		url: "",
+	},
+	{
+		image: LostInTheWoods,
+		title: "Lost In The Woods",
+		url: "/blog/projects/lostinthewoods",
+	},
+	{
+		image: Journey,
+		title: "Journey",
+		url: "/blog/projects/journey",
+	},
+];
+---
+
+<BaseLayout>
+	<div class="projectentries">
+		{
+			projects.map((project: Project) => {
+				return (
+					<ProjectEntry
+						image={project.image}
+						title={project.title}
+						url={project.url}
+					/>
+				);
+			})
+		}
+	</div>
+</BaseLayout>
+
+<style>
+	.projectentries {
+		padding: 3rem;
+		display: grid;
+		grid-template: "a a a";
+		width: 100%;
+		justify-content: space-around;
+	}
+
+	@media screen and (max-width: 1000px) {
+		.projectentries {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 0;
+		}
+	}
+</style>

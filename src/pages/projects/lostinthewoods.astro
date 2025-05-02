@@ -1,0 +1,122 @@
+---
+import "../../styles/global.css";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import LostInTheWoodsImg from "../../images/LostInTheWoods.png";
+import { Image } from "astro:assets";
+---
+
+<BaseLayout>
+	<div class="maincontent">
+		<Image
+			src={LostInTheWoodsImg}
+			alt="Lost In The Woods main menu background image"
+			width={800}
+			height={300}
+			class="gameimg"
+		/>
+		<div class="textcontent">
+			<h1>Lost In The Woods</h1>
+			<h3>Overview</h3>
+			<p>
+				Lost In The Woods is a 2D game where a meteorological station worker
+				finds himself caught in a zombie apocalypse while working one day.
+				Finding himself lost in the woods, he goes on a quest to find to be
+				rescued by a team of survivors. However, the woods are crawling with
+				infected, and he has no choice but to avoid or kill them.
+			</p>
+			<br />
+			<h3>Gameplay</h3>
+			<p>
+				The player is controlled with the WASD keys, moving around the map, and
+				aiming with the mouse and shooting by left-clicking. P pauses the game,
+				M mutes the game. The mouse can be used to navigate the menus.
+				<br />
+				The game features terrain and features such as collision detection. The player
+				can fire projectiles in the direction of the mouse, which are destroyed when
+				hitting terrain or zombies. Zombies take damage from getting hit by a projectile;
+				if they get hit enough times they die. Zombies are autonomous agents with
+				artifical intelligence - they have several states:
+			</p>
+			<br />
+			<ul>
+				<li>Idle - the zombie is idle and not moving or attacking.</li>
+				<li>
+					Chase - the zombie has spotted the player and is running towards him.
+				</li>
+				<li>
+					Attack - the zombie is in range to attack the player; the player loses
+					health for every hit.
+				</li>
+				<li>
+					Death - the zombie is dead. Dead zombies are deleted from the map and
+					disappear.
+				</li>
+			</ul>
+			<br />
+			<p>
+				If the player's health drops to 0 from being hit by zombies, the game is
+				lost and the game over screen appears. It has the options to replay the
+				level or go back to the main menu.
+			</p>
+			<br />
+			<h3>Technology</h3>
+			<p>
+				The game is written in C++ with a custom game engine that uses several
+				libraries:
+			</p>
+			<br />
+			<ul>
+				<li>SDL</li>
+				<li>SDL_mixer</li>
+				<li>Vulkan</li>
+				<li>FreeType</li>
+			</ul>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	h1 {
+		font-size: 3rem;
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	h3 {
+		margin-bottom: 0.5rem;
+	}
+
+	img {
+		align-self: center;
+	}
+
+	.maincontent {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.textcontent {
+		width: 50%;
+		align-self: center;
+		margin-top: 2rem;
+	}
+
+	@media screen and (max-width: 700px) {
+		.gameimg {
+			width: 200px;
+			height: 100px;
+		}
+
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+
+		.textcontent {
+			width: 95%;
+		}
+	}
+</style>

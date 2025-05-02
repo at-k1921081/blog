@@ -1,0 +1,48 @@
+---
+
+---
+
+<div id="nav-links">
+	<a href="/blog/">Home</a>
+	<a href="/blog/about">About</a>
+	<a href="/blog/blog">Blog</a>
+	<a href="/blog/projects">Projects</a>
+</div>
+
+<style>
+	a {
+		color: darkblue;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 1.25rem;
+		padding: 0.5rem;
+	}
+
+	a:hover {
+		background-color: darkblue;
+		color: white;
+	}
+
+	#nav-links {
+		display: flex;
+		justify-content: center;
+		gap: 5rem;
+	}
+
+	@media screen and (max-width: 700px) {
+		#nav-links {
+			flex-direction: column;
+			gap: 0rem;
+			align-items: center;
+		}
+
+		a {
+			width: 100%;
+			text-align: center;
+		}
+
+		a:hover {
+			background-color: darkblue;
+		}
+	}
+</style>

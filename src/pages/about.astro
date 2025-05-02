@@ -1,25 +1,41 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 
+const pageTitle = "About";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
-	</head>
-	<body>
-		<h1>Alex Tsvetanov</h1>
-		<nav>
-			<a href="/blog/">Home</a>
-			<a href="/blog/about">About</a>
-			<a href="/blog/blog">Blog</a>
-		</nav>
-		<p>
-			I'm Alex Tsvetanov, a software engineer that develops video games, desktop
-			applications and websites.
-		</p>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<h1>About Me</h1>
+	<p>
+		I'm a software engineer who has worked with various types of projects
+		including video games, desktop applications, mobile applications and
+		websites. I have used many technologies including Unity, Unreal Engine, SDL,
+		OpenGL and Vulkan for game development; Qt, Gtkmm and Win32 for desktop
+		development; React Native for mobile apps as well as HTML, CSS and
+		JavaScript along with web technologies including React, TypeScript, Next.js
+		and Astro for web development.
+		<br />
+		<br />
+		My favourite language is C++ which is what I've used for most of my projects.
+		I especially enjoy writing games (for which I mostly used a custom game engine
+		with libraries as SDL and OpenGL/Vulkan) as well as desktop applications (Qt
+		is the desktop framework I have the most experience with). I have 1 year of professional
+		industry experience with C++. I also use some JavaScript and TypeScript for my
+		web projects.
+		<br />
+		<br />
+		My hobbies include gaming, sports, watching cartoons/anime and gardening.
+	</p>
+</BaseLayout>
+
+<style>
+	p {
+		margin: 2rem;
+	}
+
+	h1 {
+		text-align: center;
+		margin-top: 1rem;
+	}
+</style>
