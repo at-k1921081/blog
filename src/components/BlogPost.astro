@@ -8,6 +8,10 @@ const entry = await getEntry("blog", id);
 if (!entry) {
 	throw new Error("Could not find blog post");
 }
+
+if (!id) {
+	throw new Error("Invalid id");
+}
 const { Content } = await render(entry);
 ---
 
